@@ -22,3 +22,5 @@
 04 · шлюз только для исходящего трафика привязан к сети и адреса не получает	True False	aws ec2 create-egress-only-internet-gateway --generate-cli-skeleton | python3 -c "import json,sys; d=json.load(sys.stdin); print('VpcId' in d, 'AllocationId' in d)"
 05 · у правила группы безопасности нет поля действия: запретить в ней нельзя	False	aws ec2 authorize-security-group-ingress --generate-cli-skeleton | python3 -c "import json,sys; d=json.load(sys.stdin); print('RuleAction' in d)"
 05 · у правила сетевого ACL есть номер, действие и направление	True True True	aws ec2 create-network-acl-entry --generate-cli-skeleton | python3 -c "import json,sys; d=json.load(sys.stdin); print('RuleNumber' in d, 'RuleAction' in d, 'Egress' in d)"
+01 · блок /16 делится ровно на 16 блоков /20	16	python3 -c "import ipaddress as ip; print(len(list(ip.ip_network('10.0.0.0/16').subnets(new_prefix=20))))"
+02 · в свежей подсети /20 служба показывает 4091 доступный адрес, а не 4096	4091	python3 -c "import ipaddress as ip; print(ip.ip_network('10.0.16.0/20').num_addresses - 5)"
