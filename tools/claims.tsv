@@ -1,0 +1,3 @@
+# what the site states <TAB> expected output <TAB> command
+# One line per claim. Tabs, not spaces. Example from the reference site:
+# set -e не действует внутри условия	0	bash -c 'set -e; if false; then :; fi; echo 0'

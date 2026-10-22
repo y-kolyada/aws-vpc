@@ -1,0 +1,1073 @@
+/* devops-bash. Plain CSS, no build step. Phone first, wide screen second. */
+
+:root {
+  --bg: #fbfbfa; --fg: #1a1a18; --dim: #6b6b66; --line: #e4e4e0;
+  --acc: #1d4ed8; --ok: #126b2f; --warn: #8a5a00; --code: #f1f1ee;
+  --term-accent: #db8b0e; --term-bg-hover: rgba(252, 189, 74, 0.28);
+  --target-bg: rgba(252, 189, 74, 0.12); --target-line: rgba(219, 139, 14, 0.55);
+  --base-font-size: 16px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16161a; --fg: #f0f0ee; --dim: #9a9a95; --line: #2e2e34;
+    --acc: #8ab0ff; --ok: #6fd48c; --warn: #e0b45a; --code: #22222a;
+    --term-accent: #fcbd4a; --term-bg-hover: rgba(252, 189, 74, 0.22);
+    --target-bg: rgba(252, 189, 74, 0.08); --target-line: rgba(252, 189, 74, 0.45);
+  }
+}
+/* Manual theme switch */
+html[data-theme="dark"] {
+  --bg: #16161a; --fg: #f0f0ee; --dim: #9a9a95; --line: #2e2e34;
+  --acc: #8ab0ff; --ok: #6fd48c; --warn: #e0b45a; --code: #22222a;
+  --term-accent: #fcbd4a; --term-bg-hover: rgba(252, 189, 74, 0.22);
+  --target-bg: rgba(252, 189, 74, 0.08); --target-line: rgba(252, 189, 74, 0.45);
+}
+html[data-theme="light"] {
+  --bg: #fbfbfa; --fg: #1a1a18; --dim: #6b6b66; --line: #e4e4e0;
+  --acc: #1d4ed8; --ok: #126b2f; --warn: #8a5a00; --code: #f1f1ee;
+  --term-accent: #db8b0e; --term-bg-hover: rgba(252, 189, 74, 0.28);
+  --target-bg: rgba(252, 189, 74, 0.12); --target-line: rgba(219, 139, 14, 0.55);
+}
+
+/* Font scale steps */
+html[data-font="s"] { --base-font-size: 14px; }
+html[data-font="m"] { --base-font-size: 16px; }
+html[data-font="l"] { --base-font-size: 18px; }
+
+* { box-sizing: border-box; }
+
+/* The scale sits on the root, not on the body: every rem in this file resolves
+   against it, so headings, the footer and the search panel follow the reader's
+   choice. Breakpoints are safe - rem in a media query always means 16px. */
+html { font-size: var(--base-font-size); }
+
+body {
+  margin: 0; padding: 0; background: var(--bg); color: var(--fg);
+  font: 1rem/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.wrap { max-width: 68rem; margin: 0 auto; padding: 0 16px 64px; }
+
+/* --- header and two-tier brand --- */
+header.top {
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 18px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.brand-group {
+  display: flex;
+  flex-direction: column;
+}
+header.top a.home {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.badge-ai {
+  display: inline-block;
+  width: 44px;
+  height: 26px;
+  background: url('img/ai-badge.png') no-repeat center / contain;
+  font-size: 0;
+  color: transparent;
+  vertical-align: middle;
+  flex: none;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.18);
+  border-radius: 4px;
+  transition: box-shadow 0.15s ease;
+}
+/* Inverted badge artwork in dark mode */
+html[data-theme="dark"] .badge-ai {
+  background-image: url('img/ai-badge-invert.png');
+  box-shadow: 0 0 12px rgba(252, 189, 74, 0.35);
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .badge-ai {
+    background-image: url('img/ai-badge-invert.png');
+    box-shadow: 0 0 12px rgba(252, 189, 74, 0.35);
+  }
+}
+.sub-brand {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--fg);
+}
+header.top .three {
+  color: var(--dim);
+  font-size: .85rem;
+  margin-top: 3px;
+}
+/* Topic chip. Dark text in both themes: the amber background never changes,
+   and light text on it loses contrast. */
+/* Жирная, и размер прежний. На телефоне плашка - 13.6px, и при таком размере
+   нежирный тёмный текст на янтаре читается плохо: контраст тут ни при чём, его
+   с запасом (6.82 : 1 в светлой теме, 11.07 : 1 в тёмной). Увеличивать размер
+   нельзя - слоган переносится на вторую строку и крадёт первый экран телефона.
+   Со знаком продукта плашка не спорит: тот 18.4px, она 13.6px. */
+header.top .three .topic {
+  background: var(--term-accent);
+  color: #121316;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+/* --- utility tray --- */
+.utility-tray {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--code);
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  max-width: 100%;
+}
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: wrap;
+}
+.lang-switcher a {
+  color: var(--dim);
+  text-decoration: none;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 3px 5px;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+  line-height: 1;
+}
+.lang-switcher a:hover {
+  color: var(--fg);
+  background: rgba(0,0,0,0.06);
+}
+.lang-switcher a.active {
+  color: var(--fg);
+  background: var(--bg);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+
+.font-scaler {
+  display: inline-flex;
+  align-items: center;
+  border-left: 1px solid var(--line);
+  padding-left: 8px;
+  gap: 2px;
+}
+.font-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--dim);
+  font-weight: 700;
+  padding: 2px 5px;
+  border-radius: 4px;
+  line-height: 1;
+}
+.font-btn:hover {
+  color: var(--fg);
+  background: rgba(0,0,0,0.06);
+}
+.font-btn.active {
+  color: var(--fg);
+  background: var(--bg);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+.font-s { font-size: 0.75rem; }
+.font-m { font-size: 0.9rem; }
+.font-l { font-size: 1.05rem; }
+
+.theme-toggle {
+  background: none;
+  border: none;
+  border-left: 1px solid var(--line);
+  padding: 2px 6px 2px 8px;
+  cursor: pointer;
+  color: var(--fg);
+  font-size: 1rem;
+  line-height: 1;
+  border-radius: 4px;
+}
+.theme-toggle:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 48rem) {
+  .utility-tray {
+    width: 100%;
+    justify-content: space-between;
+    padding: 4px 6px;
+    gap: 4px;
+  }
+  .lang-switcher {
+    gap: 1px;
+    flex-wrap: nowrap;
+  }
+  .lang-switcher a {
+    padding: 3px 3px;
+    font-size: 0.72rem;
+  }
+  .font-scaler {
+    padding-left: 4px;
+    gap: 1px;
+  }
+  .font-btn {
+    padding: 2px 3px;
+  }
+  .theme-toggle {
+    padding: 2px 3px 2px 4px;
+  }
+}
+
+/* --- two columns on a wide screen, one on a phone --- */
+.cols { display: block; }
+nav.contents { margin: 0 0 28px; padding: 0; }
+nav.contents ol { list-style: none; margin: 0; padding: 0; }
+nav.contents li { margin: 0 0 2px; }
+/* Direct children only: a looser selector also matched .num inside the link
+   and turned the number into a block, so words overlapped on a phone. */
+nav.contents li > a, nav.contents li > .later {
+  display: block; padding: 7px 10px; border-radius: 7px; text-decoration: none;
+  font-size: .95rem; border: 1px solid transparent; border-left: 3px solid transparent;
+}
+nav.contents li > a { color: var(--fg); }
+nav.contents li > a:hover { background: var(--code); }
+nav.contents li > a[aria-current="page"] { border-color: var(--line); border-left: 3px solid var(--term-accent); background: var(--code); font-weight: 600; }
+nav.contents li > .later { color: var(--dim); text-wrap: pretty; }
+nav.contents li > .later::after { content: " · будет"; font-size: .85em; }
+html[lang="uk"] nav.contents li > .later::after { content: " · буде"; }
+html[lang="en"] nav.contents li > .later::after { content: " · coming soon"; }
+html[lang="de"] nav.contents li > .later::after { content: " · folgt"; }
+nav.contents .num { display: inline-block; width: 1.4em; color: var(--dim); flex: none; }
+
+@media (min-width: 56rem) {
+  .cols { display: grid; grid-template-columns: 15rem 1fr; gap: 36px; align-items: start; }
+  nav.contents {
+    position: sticky;
+    top: 18px;
+    max-height: calc(100vh - 36px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    overflow-anchor: none;
+    margin: 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  nav.contents::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Inline SVG icons: emoji render as empty boxes without an emoji font.
+   SVG needs no font, no file, and takes its colour from currentColor. */
+.icon {
+  width: 1.15em;
+  height: 1.15em;
+  vertical-align: -0.22em;
+  flex: none;
+}
+
+/* In the sidebar the icon is centred on the line box, not the baseline, so it
+   reads as a superscript unless it is larger and nudged down by a pixel. */
+nav.contents .nav-extra .icon {
+  width: 1.45em;
+  height: 1.45em;
+  margin-top: 1px;
+}
+
+/* --- text --- */
+h1 { font-size: 1.7rem; line-height: 1.2; margin: 0 0 .4rem; }
+h2 { font-size: 1.25rem; margin: 2.2rem 0 .6rem; }
+h3 { font-size: 1.02rem; margin: 1.4rem 0 .4rem; }
+p, ul, ol { margin: 0 0 .9rem; }
+.lead { color: var(--dim); margin-bottom: 1.4rem; }
+.dim { color: var(--dim); }
+a { color: var(--acc); }
+
+code, kbd {
+  background: var(--code); padding: .12em .35em; border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em;
+  overflow-wrap: anywhere;
+}
+pre {
+  background: var(--code); border: 1px solid var(--line); border-radius: 8px;
+  padding: 12px 14px; overflow-x: auto; margin: 0 0 .7rem;
+  /* Room for the copy button: relative anchors it, padding keeps the first
+     line of code out from under it. */
+  position: relative; padding-top: 34px;
+}
+/* Wrap instead of scrolling sideways: at 390px long commands ran outside
+   their box. pre-wrap keeps real newlines, so a copied command stays one line. */
+pre code {
+  background: none; padding: 0; font-size: .88rem;
+  white-space: pre-wrap; overflow-wrap: anywhere;
+}
+
+/* --- copy button inside a code block (cp.js) ---
+   Always visible: a phone has no hover, and phones copy commands most. */
+.cp-btn {
+  position: absolute; top: 5px; right: 6px;
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--bg); color: var(--dim);
+  border: 1px solid var(--line); border-radius: 6px;
+  padding: 2px 7px; font: inherit; font-size: .78rem; line-height: 1.5;
+  cursor: pointer; opacity: .6; transition: opacity .12s ease, color .12s ease;
+  max-width: calc(100% - 12px);
+}
+.cp-btn:hover, .cp-btn:focus { opacity: 1; color: var(--fg); border-color: var(--term-accent); }
+.cp-btn.ok { opacity: 1; color: var(--ok); border-color: var(--ok); }
+.cp-btn.fail { opacity: 1; color: var(--warn); border-color: var(--warn); }
+.cp-ico { display: block; flex: none; }
+.cp-say:empty { display: none; }
+.cp-say { overflow-wrap: anywhere; }
+
+
+/* --- what exists after a step --- */
+.after {
+  border-left: 3px solid var(--ok); background: var(--code);
+  padding: 8px 12px; border-radius: 0 7px 7px 0; margin: 0 0 .8rem;
+}
+.after b { color: var(--ok); }
+
+.prints { border-left: 3px solid var(--line); padding: 2px 12px; margin: 0 0 .8rem; color: var(--dim); }
+
+.box { border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; margin: 1.4rem 0; }
+.box.warn { border-left: 3px solid var(--warn); }
+.box.key { border-left: 4px solid var(--term-accent); background: var(--code); }
+.box.key .artifacts-slogan { font-size: 1.05rem; font-weight: 700; color: var(--fg); margin: 0 0 10px; line-height: 1.45; }
+.box h2, .box h3 { margin-top: 0; }
+.box.key h2 { font-size: 1.15rem; margin-bottom: 8px; }
+
+/* --- question bank: a long ordered list, three lines per item --- */
+ol.qa { padding-left: 1.6em; }
+ol.qa > li { margin: 0 0 1.1rem; line-height: 1.55; }
+ol.qa > li::marker { color: var(--dim); font-variant-numeric: tabular-nums; }
+ol.qa > li > span.dim { font-size: .92em; }
+
+.soon { color: var(--dim); }
+footer { margin-top: 48px; border-top: 1px solid var(--line); padding-top: 14px; color: var(--dim); font-size: .9rem; }
+
+/* --- anchors: a link to one section, not to the whole page --- */
+/* Always visible: a phone has no hover, and that is where links are copied. */
+.anchor-link {
+  color: var(--dim); text-decoration: none; font-weight: 400;
+  padding: 0 .35em; opacity: .45;
+}
+.anchor-link:hover, .anchor-link:focus { opacity: 1; color: var(--acc); }
+/* Highlight the place a link led to, otherwise a long page hides it. */
+:target { scroll-margin-top: 14px; }
+h2:target, h3:target { background: var(--target-bg); border-radius: 6px; }
+
+/* --- search --- */
+
+.find-btn,
+.clear-mark-btn,
+.search-clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 26px;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: var(--dim);
+  cursor: pointer;
+}
+.find-btn:hover,
+.find-btn:focus-visible { color: var(--fg); border-color: var(--line); }
+
+.clear-mark-btn,
+.search-clear {
+  color: var(--term-accent);
+  background: var(--target-bg);
+  border-color: var(--target-line);
+}
+.clear-mark-btn:hover,
+.clear-mark-btn:focus-visible,
+.search-clear:hover,
+.search-clear:focus-visible {
+  color: var(--fg);
+  background: var(--term-bg-hover);
+  border-color: var(--term-accent);
+}
+.clear-mark-btn[hidden],
+.search-clear[hidden] { display: none; }
+
+mark.search-mark {
+  background: var(--term-bg-hover);
+  color: inherit;
+  border-bottom: 1.5px solid var(--term-accent);
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+.search-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, .35);
+  display: flex;
+  justify-content: center;
+  padding: 10vh 16px 16px;
+}
+.search-panel[hidden] { display: none; }
+.search-box {
+  width: 100%;
+  max-width: 44rem;
+  max-height: 72vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, .28);
+  overflow: hidden;
+}
+.search-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+}
+.search-lead-icon {
+  color: var(--dim);
+  flex: none;
+}
+.search-input {
+  flex: 1;
+  -webkit-appearance: none;
+  min-width: 0;
+  font: inherit;
+  color: var(--fg);
+  background: none;
+  border: none;
+  outline: none;
+  padding: 6px 2px;
+}
+/* The language of the results is always on screen: a hit never comes from a
+   language the reader did not choose. */
+.search-lang,
+.search-badge {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: var(--dim);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 1px 5px;
+}
+/* The browser's own clear button would be a second cross next to ours. */
+.search-input::-webkit-search-cancel-button,
+.search-input::-webkit-search-decoration { display: none; }
+
+.search-close {
+  background: none;
+  border: none;
+  color: var(--dim);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 6px;
+}
+.search-close:hover { color: var(--fg); }
+.search-results {
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  overflow-y: auto;
+}
+.search-results a {
+  display: block;
+  padding: 9px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--fg);
+}
+.search-results a:hover,
+.search-results a.picked { background: var(--code); }
+.search-results a.picked { box-shadow: inset 3px 0 0 var(--acc); }
+.search-title { font-weight: 600; display: block; }
+.search-where {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--dim);
+  font-size: .8rem;
+  margin: 2px 0;
+}
+.search-snip {
+  display: block;
+  color: var(--dim);
+  font-size: .85rem;
+  overflow-wrap: anywhere;
+}
+.search-empty {
+  padding: 18px 12px;
+  color: var(--dim);
+}
+.search-hint {
+  padding: 8px 12px;
+  border-top: 1px solid var(--line);
+  color: var(--dim);
+  font-size: .78rem;
+}
+@media (max-width: 56rem) {
+  .search-panel { padding: 0; }
+  .search-box { max-width: none; max-height: 100%; border-radius: 0; border: none; }
+  .search-hint { display: none; }
+}
+
+/* --- floating button stack --- */
+
+/* One corner, one stack. Buttons accumulate; if each picks its own corner they
+   collide. The container owns the corner. */
+.floats {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.float-btn {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  color: var(--fg);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .12);
+  cursor: pointer;
+  /* Muted at rest: the button floats over the text. Full strength on hover
+     and on keyboard focus. */
+  opacity: .55;
+  transition: opacity .15s ease, border-color .15s ease, color .15s ease;
+}
+/* Янтарный, а не синий: синим на сайте окрашены ссылки, а это кнопка. Тот же
+   цвет носят остальные инструменты читателя - кнопка копирования кода и сброс
+   подсветки найденных слов. */
+.float-btn:hover,
+.float-btn:focus-visible {
+  opacity: 1;
+  color: var(--term-accent);
+  border-color: var(--target-line);
+}
+.float-btn .icon {
+  width: 22px;
+  height: 22px;
+}
+/* Keeps the floating button clear of the last lines of the page. */
+body { padding-bottom: 72px; }
+
+/* --- interactive term cards --- */
+.term {
+  position: relative;
+  display: inline-block;
+  white-space: normal;
+}
+.term-btn {
+  background: none;
+  border: none;
+  padding: 1px 4px;
+  margin: -1px -4px;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  border-bottom: 2px dashed var(--term-accent);
+  border-radius: 4px;
+  outline: none;
+  transition: background .15s ease, border-color .15s ease;
+}
+.term-btn:hover,
+.term-btn:focus-visible,
+.term[data-open] .term-btn,
+.term-btn[aria-expanded="true"] {
+  background: var(--term-bg-hover) !important;
+  border-bottom: 2px solid var(--term-accent) !important;
+}
+.term-card {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: 290px;
+  max-width: 82vw;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.15), 0 4px 6px rgba(0,0,0,.08);
+  padding: 12px 14px;
+  font-size: .88rem;
+  line-height: 1.45;
+  color: var(--fg);
+  text-align: left;
+}
+.term-card[hidden] {
+  display: none !important;
+}
+.term[data-open] .term-card,
+.term-card:not([hidden]) {
+  display: block;
+}
+.term-card::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -6px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: var(--line) transparent transparent transparent;
+}
+.term-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.term-title {
+  display: inline-block;
+  font-weight: 600;
+  color: var(--fg);
+}
+.term-close {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: var(--dim);
+  cursor: pointer;
+  padding: 0 4px;
+  border-radius: 4px;
+}
+.term-close:hover {
+  color: var(--fg);
+  background: var(--code);
+}
+.term-desc {
+  display: block;
+  color: var(--fg);
+  margin-bottom: 8px;
+}
+.term-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+  font-size: .82rem;
+}
+.term-links a {
+  color: var(--acc);
+  text-decoration: none;
+}
+.term-links a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .term-card {
+    position: fixed;
+    bottom: 20px;
+    left: 16px;
+    right: 16px;
+    width: auto;
+    max-width: none;
+    transform: none;
+    z-index: 1000;
+    box-shadow: 0 12px 32px rgba(0,0,0,.3);
+  }
+  .term-card::after {
+    display: none;
+  }
+}
+
+/* Glossary link in the sidebar */
+nav.contents .nav-extra {
+  margin-top: 14px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-top: 1px solid var(--line);
+}
+nav.contents .nav-extra > a,
+nav.contents .nav-extra > div > a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  border-radius: 7px;
+  text-decoration: none;
+  font-size: .95rem;
+  color: var(--fg);
+  border: 1px solid transparent;
+  border-left: 3px solid transparent;
+}
+nav.contents .nav-extra > a:hover,
+nav.contents .nav-extra > div > a:hover {
+  background: var(--code);
+}
+nav.contents .nav-extra > a[aria-current="page"],
+nav.contents .nav-extra > div > a[aria-current="page"] {
+  border-color: var(--line);
+  border-left: 3px solid var(--term-accent);
+  background: var(--code);
+  font-weight: 600;
+}
+
+/* --- glossary entries --- */
+.glossary-term {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin: 0 0 16px;
+  background: var(--bg);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.glossary-term:target {
+  border-color: var(--term-accent);
+  box-shadow: 0 0 0 1px var(--term-accent), 0 4px 16px rgba(252, 189, 74, 0.2);
+  scroll-margin-top: 23px;
+}
+.glossary-term h2,
+.glossary-term h3 {
+  margin: 0 0 10px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.glossary-title {
+  color: var(--fg);
+}
+.glossary-object {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--warn);
+  background: rgba(252, 189, 74, 0.16);
+  border: 1px solid rgba(219, 139, 14, 0.35);
+  padding: 2px 8px;
+  border-radius: 5px;
+  letter-spacing: 0.02em;
+}
+.glossary-term h2 .anchor-link,
+.glossary-term h3 .anchor-link {
+  margin-left: auto;
+  font-size: 1rem;
+}
+.glossary-lead {
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.48;
+  color: var(--fg);
+  margin: 0 0 10px;
+}
+.glossary-term p {
+  margin: 0 0 8px;
+}
+.glossary-meta {
+  color: var(--dim);
+  font-size: .9rem;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+/* --- in-page table of contents --- */
+/* Разделы текущей страницы стоят внутри её пункта меню. Вложенность показана
+   отступом и линией, а не заголовком: заголовок занимал строку в самой дорогой
+   части панели - в той, что видна без прокрутки. */
+.page-toc {
+  margin: 3px 0 10px 14px;
+  padding-left: 10px;
+  border-left: 1px solid var(--line);
+}
+/* Лендинг не входит в пятнадцать разделов, вкладывать его разделы не во что:
+   они встают над картой сайта и отделяются от неё чертой, а не отступом. */
+nav.contents > .page-toc {
+  margin: 0 0 14px;
+  padding: 0 0 12px;
+  border-left: none;
+  border-bottom: 1px solid var(--line);
+}
+/* --- телефон: меню свёрнуто в строку --- */
+/* На широком экране строки нет вовсе: панель липкая, места хватает. */
+.nav-fold { display: none; }
+
+@media (max-width: 56rem) {
+  .nav-fold {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 12px;
+    background: var(--code);
+    color: var(--fg);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font: inherit;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+  }
+  .nav-fold-say { overflow-wrap: anywhere; }
+  .nav-fold .icon { flex: none; transition: transform .15s ease; }
+  nav.contents:not(.nav-folded) .nav-fold .icon { transform: rotate(180deg); }
+  nav.contents.nav-folded > *:not(.nav-fold) { display: none; }
+  nav.contents.nav-folded { margin-bottom: 18px; }
+  /* Разделы страницы на телефоне живут внутри развёрнутого меню: отдельного
+     блока и заголовка там нет - это одно и то же место. */
+  nav.contents:not(.nav-folded) .page-toc { display: block; }
+  .nav-fold + ol { margin-top: 12px; }
+}
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.toc-list li { margin: 0 0 3px; }
+.toc-list a {
+  display: block;
+  color: var(--dim);
+  font-size: 0.85rem;
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 5px;
+  border-left: 3px solid transparent;
+  text-wrap: pretty;
+  transition: all 0.15s ease;
+}
+.toc-list a:hover {
+  color: var(--fg);
+  background: var(--code);
+}
+.toc-list a.active {
+  color: var(--fg);
+  font-weight: 600;
+  border-left: 3px solid var(--term-accent);
+  background: var(--term-bg-hover);
+}
+
+/* --- stub card for a language that is not translated yet --- */
+.stub-card {
+  padding: 24px;
+  margin: 20px 0 32px;
+  border-left: 4px solid var(--term-accent);
+  background: var(--code);
+  border-radius: 8px;
+}
+.stub-card h2, .stub-card h3 {
+  margin-top: 0;
+  color: var(--fg);
+}
+.stub-card p {
+  color: var(--fg);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+.stub-actions {
+  margin-top: 20px;
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--term-accent);
+  color: #111827;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 10px 18px;
+  border-radius: 7px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.18);
+}
+
+/* --- screen reading, accessibility and print --- */
+@media print {
+  /* Nothing to press on paper. */
+  .cp-btn { display: none; }
+  nav.contents, .utility-tray, .page-toc, .anchor-link, .term-card, .floats {
+    display: none !important;
+  }
+  .cols {
+    display: block !important;
+  }
+  .wrap {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  body {
+    background: #fff !important;
+    color: #111 !important;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+  h1, h2, h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+    color: #000 !important;
+  }
+  pre {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    background: #f8f8f8 !important;
+    border: 1px solid #ddd !important;
+    white-space: pre-wrap !important;
+    padding: 8pt 10pt !important;
+    margin: 0 0 8pt !important;
+  }
+  code, kbd {
+    background: #f5f5f5 !important;
+    color: #111 !important;
+  }
+  .box {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    background: #fafafa !important;
+    border: 1px solid #ddd !important;
+  }
+  .box.key {
+    background: #fafafa !important;
+    border-left: 3pt solid #db8b0e !important;
+  }
+  .box.warn {
+    border-left: 3pt solid #8a5a00 !important;
+  }
+  footer {
+    margin-top: 24pt !important;
+    border-top: 1px solid #ddd !important;
+    color: #666 !important;
+    font-size: 9pt !important;
+  }
+}
+
+/* --- sticky sidebar: the bottom air belongs to the right column --- */
+
+/* A sticky element cannot leave its container, and empty page padding below
+   the grid pushed the sidebar 118px above the viewport at the bottom of a page.
+   Declared last on purpose: body padding-bottom is set below the sidebar rules. */
+@media (min-width: 56rem) {
+  body { padding-bottom: 0; }
+  .wrap { padding-bottom: 0; }
+  main { padding-bottom: 64px; }
+}
+
+/* --- pinned header --- */
+
+/* Pinned on a wide screen so language, theme and font size stay in reach; left
+   scrolling on a phone, where it would cost a seventh of the screen.
+   swa.js sets --header-h from the real height; the fallback covers first paint. */
+@media (min-width: 56rem) {
+  header.top {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--bg);
+  }
+
+  /* Air under the rule. The sidebar stops 12px below it; text in the right
+     column would otherwise run straight into it. The strip fades out, so a line
+     passing underneath dissolves instead of being cut across the letters. */
+  header.top::after {
+    content: "";
+    position: absolute;
+    /* Percentages resolve against the padding box, so without the extra pixel
+       the strip covered the border rule itself. */
+    top: calc(100% + 1px);
+    left: 0;
+    right: 0;
+    height: 22px;
+    background: linear-gradient(to bottom, var(--bg) 55%, rgba(0, 0, 0, 0));
+    pointer-events: none;
+  }
+  nav.contents {
+    top: calc(var(--header-h, 68px) + 18px);
+    max-height: calc(100vh - var(--header-h, 68px) - 24px);
+  }
+}
+
+/* Not pinned on a phone, so the air above the brand reads as a page margin. */
+@media (max-width: 56rem) {
+  header.top { padding-top: 16px; }
+}
+
+/* An anchor must not land under the header or its fading dissolve strip (23px).
+   The variable is 0 while the header is not pinned, so a phone keeps a clean margin. */
+:target,
+.glossary-term:target {
+  scroll-margin-top: calc(var(--header-h, 0px) + 23px);
+}
+
+/* --- объём страницы и соседние темы --- */
+
+/* Объём в словах, а не в минутах: чтение бывает беглое, глубокое и
+   проверочное, и минуты врут. Число печёт генератор, поэтому оно видно и в
+   режиме чтения, и в печати, и без JavaScript. */
+.page-size {
+  margin: -6px 0 14px;
+  color: var(--dim);
+  font-size: .85rem;
+}
+
+/* Ссылки на соседние темы: текст, а не кнопки. Так их видит ридер, режим
+   чтения и поисковик, и так они не спорят с плавающими кнопками прокрутки. */
+.pager {
+  margin: 0 0 14px;
+}
+.pager p {
+  margin: 0 0 4px;
+}
+.pager a {
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+.pager a:hover,
+.pager a:focus-visible {
+  border-bottom-color: var(--acc);
+}
+
+/* --- ссылка «к содержанию» --- */
+/* Первая в порядке обхода клавиатурой и невидимая мышью. Без неё читатель с
+   клавиатуры проходит всё меню на каждой странице заново. Не display: none -
+   спрятанное так не получает фокус и не существует для читалки. */
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 10px 14px;
+  background: var(--bg);
+  color: var(--fg);
+  border: 1px solid var(--acc);
+  border-radius: 0 0 8px 0;
+  text-decoration: none;
+}
+.skip:focus {
+  left: 0;
+}
