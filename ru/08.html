@@ -115,7 +115,7 @@
 
     <h2 id="two-switches">2 · Два переключателя, которые путают <a class="anchor-link" href="#two-switches">#</a></h2>
     <p>У сети два отдельных свойства, и названия у них похожи настолько, что их регулярно принимают за одно.</p>
-<pre><code>{
+<pre data-run="syntax"><code>{
  "VpcId": "vpc-0a",
  "EnableDnsSupport":
    { "Value": true },
@@ -143,7 +143,7 @@
 
     <h2 id="resolver-endpoints">5 · Точки резолвера: внутрь и наружу <a class="anchor-link" href="#resolver-endpoints">#</a></h2>
     <p>Встроенный резолвер отвечает только изнутри сети. Чтобы имена ходили между сетью и вашей площадкой, нужны точки резолвера, и их две, по направлениям.</p>
-<pre><code>{
+<pre data-run="syntax"><code>{
  "Direction": "OUTBOUND",
  "IpAddresses": [
   { "SubnetId": "subnet-0a" },
