@@ -1,3 +1,24 @@
 # what the site states <TAB> expected output <TAB> command
-# One line per claim. Tabs, not spaces. Example from the reference site:
-# set -e не действует внутри условия	0	bash -c 'set -e; if false; then :; fi; echo 0'
+# One line per claim. Tabs, not spaces.
+#
+# Этот сайт доказывает утверждения двумя способами, и оба работают без аккаунта AWS:
+#   1. арифметику адресов считает python3 модулем ipaddress;
+#   2. имена и обязательность параметров команд проверяет сам клиент aws
+#      формой --generate-cli-skeleton, которая не обращается к службе.
+# Вывод службы на страницах не печатается: его нечем запустить, значит его нет.
+
+01 · блок /16 содержит 65536 адресов	65536	python3 -c "import ipaddress as ip; print(ip.ip_network('10.0.0.0/16').num_addresses)"
+01 · в подсети /24 остаётся 251 адрес: пять забирает AWS	251	python3 -c "import ipaddress as ip; print(ip.ip_network('10.0.1.0/24').num_addresses - 5)"
+01 · в минимальной подсети /28 остаётся 11 адресов	11	python3 -c "import ipaddress as ip; print(ip.ip_network('10.0.1.0/28').num_addresses - 5)"
+01 · второй адрес блока - маршрутизатор VPC, третий - резолвер DNS	10.0.0.1 10.0.0.2	python3 -c "import ipaddress as ip; h = list(ip.ip_network('10.0.0.0/16').hosts()); print(h[0], h[1])"
+01 · 10.0.0.0/16 и 10.1.0.0/16 не пересекаются, а 10.0.0.0/16 и 10.0.5.0/24 пересекаются	False True	python3 -c "import ipaddress as ip; n = ip.ip_network('10.0.0.0/16'); print(n.overlaps(ip.ip_network('10.1.0.0/16')), n.overlaps(ip.ip_network('10.0.5.0/24')))"
+01 · в блоке IPv6 /56 помещается 256 подсетей /64	256	python3 -c "import ipaddress as ip; print(len(list(ip.ip_network('2600:1f18:abcd:ef00::/56').subnets(new_prefix=64))))"
+01 · создание VPC принимает блок адресов и флаг блока IPv6 от AWS	True True	aws ec2 create-vpc --generate-cli-skeleton | python3 -c "import json,sys; d=json.load(sys.stdin); print('CidrBlock' in d, 'AmazonProvidedIpv6CidrBlock' in d)"
+02 · подсеть создаётся из сети, блока адресов и зоны доступности	True True True	aws ec2 create-subnet --generate-cli-skeleton | python3 -c "import json,sys; d=json.load(sys.stdin); print('VpcId' in d, 'CidrBlock' in d, 'AvailabilityZone' in d)"
+02 · адрес из подсети выдаётся сетевому интерфейсу, а не машине	True True	aws ec2 create-network-interface --generate-cli-skeleton | python3 -c "import json,sys; d=json.load(sys.stdin); print('SubnetId' in d, 'PrivateIpAddress' in d)"
+03 · для адреса 10.0.5.9 из трёх маршрутов побеждает самый длинный префикс	10.0.5.0/24	python3 -c "import ipaddress as ip; a = ip.ip_address('10.0.5.9'); nets = [ip.ip_network(c) for c in ('0.0.0.0/0', '10.0.0.0/16', '10.0.5.0/24')]; print(max([n for n in nets if a in n], key=lambda n: n.prefixlen))"
+03 · маршрут задаётся блоком назначения и целью: шлюзом, NAT или интерфейсом	True True True True	aws ec2 create-route --generate-cli-skeleton | python3 -c "import json,sys; d=json.load(sys.stdin); print('DestinationCidrBlock' in d, 'GatewayId' in d, 'NatGatewayId' in d, 'NetworkInterfaceId' in d)"
+04 · NAT Gateway создаётся в подсети, с эластичным адресом и типом подключения	True True True	aws ec2 create-nat-gateway --generate-cli-skeleton | python3 -c "import json,sys; d=json.load(sys.stdin); print('SubnetId' in d, 'AllocationId' in d, 'ConnectivityType' in d)"
+04 · шлюз только для исходящего трафика привязан к сети и адреса не получает	True False	aws ec2 create-egress-only-internet-gateway --generate-cli-skeleton | python3 -c "import json,sys; d=json.load(sys.stdin); print('VpcId' in d, 'AllocationId' in d)"
+05 · у правила группы безопасности нет поля действия: запретить в ней нельзя	False	aws ec2 authorize-security-group-ingress --generate-cli-skeleton | python3 -c "import json,sys; d=json.load(sys.stdin); print('RuleAction' in d)"
+05 · у правила сетевого ACL есть номер, действие и направление	True True True	aws ec2 create-network-acl-entry --generate-cli-skeleton | python3 -c "import json,sys; d=json.load(sys.stdin); print('RuleNumber' in d, 'RuleAction' in d, 'Egress' in d)"
