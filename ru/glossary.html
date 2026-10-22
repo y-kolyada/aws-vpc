@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Словарь понятий · devops-aws-vpc · ai|</title>
 <!-- meta: built by tools/build-meta.py - do not edit by hand -->
-<meta name="description" content="Лид страницы: о чём она и кому нужна.">
+<meta name="description" content="Тридцать пять понятий курса: механизм, форма команды и место, где понятие встретилось.">
 <link rel="canonical" href="https://y-kolyada.github.io/aws-vpc/ru/glossary.html">
 <link rel="alternate" hreflang="ru" href="https://y-kolyada.github.io/aws-vpc/ru/glossary.html">
 <link rel="alternate" hreflang="en" href="https://y-kolyada.github.io/aws-vpc/en/glossary.html">
@@ -15,12 +15,12 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="devops-aws-vpc">
 <meta property="og:title" content="Словарь понятий">
-<meta property="og:description" content="Лид страницы: о чём она и кому нужна.">
+<meta property="og:description" content="Тридцать пять понятий курса: механизм, форма команды и место, где понятие встретилось.">
 <meta property="og:url" content="https://y-kolyada.github.io/aws-vpc/ru/glossary.html">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Словарь понятий","description":"Лид страницы: о чём она и кому нужна.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"devops-aws-vpc","url":"https://y-kolyada.github.io/aws-vpc/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTermSet","name":"Словарь понятий","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html","inLanguage":"ru","hasDefinedTerm":[{"@type":"DefinedTerm","name":"Анализатор достижимости (Reachability Analyzer)","description":"Служба, которая по одной конфигурации сети отвечает, дойдёт ли пакет от источника до назначения.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-reachability"},{"@type":"DefinedTerm","name":"Атрибуты DNS в VPC (enableDnsSupport, enableDnsHostnames)","description":"Два переключателя на уровне сети: первый включает резолвер, второй выдаёт машинам публичные имена.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-dns-attributes"},{"@type":"DefinedTerm","name":"Блок CIDR (CIDR Block)","description":"Запись диапазона адресов, где число после косой черты задаёт длину неизменяемой части адреса.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-cidr"},{"@type":"DefinedTerm","name":"Виртуальное частное облако (VPC)","description":"Изолированная сеть в одном регионе со своим планом адресов, внутри которой живут все остальные объекты.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-vpc"},{"@type":"DefinedTerm","name":"Вторичный блок CIDR (Secondary CIDR)","description":"Дополнительный диапазон адресов, добавленный к уже работающей сети, когда первичный блок кончился.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-secondary-cidr"},{"@type":"DefinedTerm","name":"Главная таблица маршрутов (Main Route Table)","description":"Таблица, которая действует на все подсети сети, не связанные явно ни с какой другой таблицей.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-main-route-table"},{"@type":"DefinedTerm","name":"Группа безопасности (Security Group)","description":"Фильтр с состоянием на сетевом интерфейсе, который умеет только разрешать.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-sg"},{"@type":"DefinedTerm","name":"Журнал потоков (VPC Flow Logs)","description":"Запись метаданных о сетевых потоках интерфейса, подсети или всей сети.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-flow-logs"},{"@type":"DefinedTerm","name":"Зона доступности (Availability Zone)","description":"Отдельный набор центров данных региона со своим питанием и связью, служащий границей отказа.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-az"},{"@type":"DefinedTerm","name":"Интернет-шлюз (Internet Gateway)","description":"Свойство сети, выполняющее трансляцию один к одному между приватным и публичным адресом машины.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-igw"},{"@type":"DefinedTerm","name":"Интерфейсная точка доступа (Interface Endpoint)","description":"Сетевой интерфейс с приватным адресом внутри вашей подсети, за которым стоит служба облака.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-endpoint-interface"},{"@type":"DefinedTerm","name":"Локальный маршрут (Local Route)","description":"Маршрут блока сети внутрь самой сети, появляющийся в каждой таблице сам и не удаляемый.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-local-route"},{"@type":"DefinedTerm","name":"Межзональный трафик (Cross-AZ Data Transfer)","description":"Платный обмен данными между зонами доступности внутри одного региона.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-cross-zone"},{"@type":"DefinedTerm","name":"Менеджер адресного пространства (IPAM)","description":"Служба, которая держит дерево пулов адресов, выдаёт блоки по правилам и следит за пересечениями.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-ipam"},{"@type":"DefinedTerm","name":"Периметр данных (Data Perimeter)","description":"Набор правил, после которых доверенные личности обращаются к доверенным ресурсам только по доверенным путям.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-data-perimeter"},{"@type":"DefinedTerm","name":"Пиринг VPC (VPC Peering)","description":"Прямое соединение ровно двух сетей, не передающее трафик дальше.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-peering"},{"@type":"DefinedTerm","name":"Подсеть (Subnet)","description":"Часть блока сети, привязанная ровно к одной зоне доступности.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-subnet"},{"@type":"DefinedTerm","name":"Политика точки доступа (Endpoint Policy)","description":"Документ, ограничивающий, что именно можно делать через эту точку доступа.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-endpoint-policy"},{"@type":"DefinedTerm","name":"Правило самого длинного префикса (Longest Prefix Match)","description":"Из всех подходящих маршрутов выбирается тот, у которого длиннее маска.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-longest-prefix"},{"@type":"DefinedTerm","name":"Приватная зона DNS (Private Hosted Zone)","description":"Зона имён, видимая только из привязанных к ней сетей.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-private-zone"},{"@type":"DefinedTerm","name":"Приватная связь со службой (PrivateLink)","description":"Механизм, при котором чужая служба появляется в вашей сети приватным адресом интерфейса.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-privatelink"},{"@type":"DefinedTerm","name":"Публичная подсеть (Public Subnet)","description":"Подсеть, в таблице маршрутов которой есть маршрут по умолчанию на интернет-шлюз.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-public-subnet"},{"@type":"DefinedTerm","name":"Разделяемая подсеть (Shared Subnet)","description":"Подсеть, отданная владельцем сети другому счёту организации для запуска в ней своих ресурсов.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-shared-subnet"},{"@type":"DefinedTerm","name":"Резолвер VPC (Route 53 Resolver)","description":"Служба разрешения имён, доступная на втором адресе блока сети изнутри этой сети.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-resolver"},{"@type":"DefinedTerm","name":"Сетевой ACL (Network ACL)","description":"Фильтр без состояния на границе подсети, умеющий и разрешать, и запрещать.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-nacl"},{"@type":"DefinedTerm","name":"Сетевой интерфейс (ENI)","description":"Единица, к которой крепятся приватный адрес, публичный адрес, группы безопасности и запись в журнале.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-eni"},{"@type":"DefinedTerm","name":"Служба разделения ресурсов (AWS RAM)","description":"Служба, передающая ресурсы одного счёта другим счетам организации.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-ram"},{"@type":"DefinedTerm","name":"Список префиксов (Prefix List)","description":"Именованный набор блоков адресов, на который ссылаются маршруты и правила фильтров.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-prefix-list"},{"@type":"DefinedTerm","name":"Таблица маршрутов (Route Table)","description":"Набор правил вида «такой-то блок уходит туда-то», связанный с подсетями.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-route-table"},{"@type":"DefinedTerm","name":"Точка резолвера (Resolver Endpoint)","description":"Интерфейсы, через которые запросы имён пересекают границу между облаком и центром данных.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-resolver-endpoint"},{"@type":"DefinedTerm","name":"Транзитный шлюз (Transit Gateway)","description":"Центральный узел, соединяющий сети, каналы и другие шлюзы через присоединения.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-tgw"},{"@type":"DefinedTerm","name":"Шлюз трансляции адресов (NAT Gateway)","description":"Устройство, дающее приватным подсетям выход наружу без возможности входа.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-nat"},{"@type":"DefinedTerm","name":"Шлюзовая точка доступа (Gateway Endpoint)","description":"Запись в таблице маршрутов, дающая приватной подсети доступ к S3 или DynamoDB без интернета.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-endpoint-gateway"},{"@type":"DefinedTerm","name":"Эластичный адрес (Elastic IP)","description":"Публичный адрес, закреплённый за счётом, а не за машиной.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-eip"},{"@type":"DefinedTerm","name":"Эфемерные порты (Ephemeral Ports)","description":"Высокие порты, с которых клиент начинает соединение и на которые приходит ответ.","url":"https://y-kolyada.github.io/aws-vpc/ru/glossary.html#term-ephemeral"}]}</script>
 <!-- /meta -->
 <link rel="stylesheet" href="../assets/style.css?v=1">
 <script>
@@ -94,10 +94,468 @@
 
   <main id="main">
     <h1>Словарь понятий</h1>
-    <p class="page-size" data-words="22">Слов: 22</p>
-    <p class="lead">Лид страницы: о чём она и кому нужна. Одно предложение, не длиннее 160 знаков.</p>
+    <p class="page-size" data-words="2436">Слов: 2436</p>
+    <p class="lead">Тридцать пять понятий курса: механизм, форма команды и место, где понятие встретилось.</p>
 
-    <p>Текст этого раздела ещё не написан.</p>
+    <div class="box key" id="key-idea">
+      <h2>Как читать словарь <a class="anchor-link" href="#key-idea" aria-label="ссылка на этот блок">#</a></h2>
+      <p>Статьи идут по алфавиту русского названия. В каждой есть короткая форма команды или значения, по которой понятие узнаётся в выводе, разбор механизма в одном абзаце и перечень мест курса, где оно вводится. Словарь покрывает ровно те понятия, которыми пользуются страницы: лишних статей здесь нет, непокрытых понятий тоже.</p>
+    </div>
+
+    <div class="glossary-term" id="term-reachability">
+      <h2>
+        <span class="glossary-title">Анализатор достижимости (Reachability Analyzer)</span>
+        <code class="glossary-object">ec2 create-network-insights-path</code>
+        <a class="anchor-link" href="#term-reachability">#</a>
+      </h2>
+      <p class="glossary-lead">Служба, которая по одной конфигурации сети отвечает, дойдёт ли пакет от источника до назначения.</p>
+      <p>Анализатор не посылает пакетов. Он читает маршруты, фильтры, точки доступа и шлюзы и либо показывает путь целиком, либо называет компонент, на котором путь обрывается. Поэтому он ловит потерянный маршрут и закрытое правило, но не видит ни файрвола внутри машины, ни того, слушает ли служба порт.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="09.html">Почему не дошло</a>, <a href="12.html">Примеры · IGL</a>, <a href="navigator.html#lens-devops">Навигатор · Практики DevOps</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-dns-attributes">
+      <h2>
+        <span class="glossary-title">Атрибуты DNS в VPC (enableDnsSupport, enableDnsHostnames)</span>
+        <code class="glossary-object">modify-vpc-attribute</code>
+        <a class="anchor-link" href="#term-dns-attributes">#</a>
+      </h2>
+      <p class="glossary-lead">Два переключателя на уровне сети: первый включает резолвер, второй выдаёт машинам публичные имена.</p>
+      <p>Первый атрибут - рубильник: при выключенном резолвере обращения на второй адрес блока остаются без ответа, и перестают работать приватные зоны и приватные имена точек доступа. Второй влияет только на публичные имена машин с публичным адресом. Внутреннее имя вида <code>ip-10-0-1-5</code> машина получает в любом случае.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="08.html">Имена и DNS</a>, <a href="14.html#dns-resolution">Вопросы · Pro · DNS</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-cidr">
+      <h2>
+        <span class="glossary-title">Блок CIDR (CIDR Block)</span>
+        <code class="glossary-object">10.0.0.0/16</code>
+        <a class="anchor-link" href="#term-cidr">#</a>
+      </h2>
+      <p class="glossary-lead">Запись диапазона адресов, где число после косой черты задаёт длину неизменяемой части адреса.</p>
+      <p>Чем больше число после черты, тем короче свободный хвост и тем меньше адресов: <code>/16</code> даёт 65 536, <code>/24</code> - 256, шаг вправо делит блок пополам. Для VPC и подсети допустимы размеры от <code>/16</code> до <code>/28</code>. Запись с занятыми битами хоста, например <code>10.0.1.0/20</code>, недопустима.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="01.html">Адреса и блоки</a>, <a href="10.html">Примеры · Noob</a>, <a href="13.html#addresses-blocks">Вопросы · Noob · адреса</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-vpc">
+      <h2>
+        <span class="glossary-title">Виртуальное частное облако (VPC)</span>
+        <code class="glossary-object">ec2 create-vpc · vpc-…</code>
+        <a class="anchor-link" href="#term-vpc">#</a>
+      </h2>
+      <p class="glossary-lead">Изолированная сеть в одном регионе со своим планом адресов, внутри которой живут все остальные объекты.</p>
+      <p>VPC покрывает все зоны доступности региона и задаёт границу плана адресов. Первичный блок после создания не меняется, поэтому ошибка плана лечится переездом, а не правкой поля. Новая сеть закрыта по умолчанию: без явного маршрута и явного правила трафик не идёт ни внутрь, ни наружу.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="01.html">Адреса и блоки</a>, <a href="navigator.html#lens-components">Навигатор · Компоненты</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-secondary-cidr">
+      <h2>
+        <span class="glossary-title">Вторичный блок CIDR (Secondary CIDR)</span>
+        <code class="glossary-object">ec2 associate-vpc-cidr-block</code>
+        <a class="anchor-link" href="#term-secondary-cidr">#</a>
+      </h2>
+      <p class="glossary-lead">Дополнительный диапазон адресов, добавленный к уже работающей сети, когда первичный блок кончился.</p>
+      <p>Квота по умолчанию - пять блоков на сеть. Новый блок автоматически попадает в локальный маршрут, но подсети в нём создаются руками, а маршруты у соединённых сетей, правила фильтров и списки на стороне центра данных приходится дописывать отдельно. Пересечение с соседними сетями вторичный блок не лечит.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="01.html">Адреса и блоки</a>, <a href="11.html">Примеры · Pro</a>, <a href="14.html#quotas-cost">Вопросы · Pro · эксплуатация</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-main-route-table">
+      <h2>
+        <span class="glossary-title">Главная таблица маршрутов (Main Route Table)</span>
+        <code class="glossary-object">describe-route-tables · main: true</code>
+        <a class="anchor-link" href="#term-main-route-table">#</a>
+      </h2>
+      <p class="glossary-lead">Таблица, которая действует на все подсети сети, не связанные явно ни с какой другой таблицей.</p>
+      <p>Явная связь всегда перекрывает главную таблицу. Отсюда самая частая ошибка новичка: правка главной таблицы при наличии у подсети собственной. Правка проходит без ошибок, маршрут появляется в списке, и ничего не меняется.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="03.html">Таблицы маршрутов</a>, <a href="13.html#route-tables">Вопросы · Noob · маршруты</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-sg">
+      <h2>
+        <span class="glossary-title">Группа безопасности (Security Group)</span>
+        <code class="glossary-object">authorize-security-group-ingress</code>
+        <a class="anchor-link" href="#term-sg">#</a>
+      </h2>
+      <p class="glossary-lead">Фильтр с состоянием на сетевом интерфейсе, который умеет только разрешать.</p>
+      <p>Новая группа разрешает всё исходящее и ничего входящего. Состояние означает, что ответ на разрешённый исходящий запрос пройдёт без отдельного правила. Источником правила может быть другая группа, и тогда разрешение выдано членству, а не адресу. Правила нескольких групп на интерфейсе складываются как объединение разрешений.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="05.html">Фильтры трафика</a>, <a href="10.html">Примеры · Noob</a>, <a href="13.html#traffic-filters">Вопросы · Noob · фильтры</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-flow-logs">
+      <h2>
+        <span class="glossary-title">Журнал потоков (VPC Flow Logs)</span>
+        <code class="glossary-object">ec2 create-flow-logs</code>
+        <a class="anchor-link" href="#term-flow-logs">#</a>
+      </h2>
+      <p class="glossary-lead">Запись метаданных о сетевых потоках интерфейса, подсети или всей сети.</p>
+      <p>Запись содержит адреса и порты, протокол, число пакетов и байтов, границы окна и действие <code>ACCEPT</code> или <code>REJECT</code>. Содержимого пакетов в журнале нет, как нет обращений к резолверу сети, к службе метаданных и обмена DHCP. Поэтому отсутствие записи не доказывает отсутствия трафика.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="09.html">Почему не дошло</a>, <a href="11.html">Примеры · Pro</a>, <a href="navigator.html#lens-sre">Навигатор · Практики SRE</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-az">
+      <h2>
+        <span class="glossary-title">Зона доступности (Availability Zone)</span>
+        <code class="glossary-object">euc1-az1 · eu-central-1a</code>
+        <a class="anchor-link" href="#term-az">#</a>
+      </h2>
+      <p class="glossary-lead">Отдельный набор центров данных региона со своим питанием и связью, служащий границей отказа.</p>
+      <p>Подсеть живёт ровно в одной зоне, и растянуть её на две нельзя. Буквенное имя зоны раздаётся каждому счёту отдельно, поэтому <code>eu-central-1a</code> в двух счетах может означать разные зоны; совпадает только идентификатор вида <code>euc1-az1</code>. Трафик между зонами тарифицируется в обе стороны.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="02.html">Подсети и зоны</a>, <a href="navigator.html#lens-sre">Навигатор · Практики SRE</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-igw">
+      <h2>
+        <span class="glossary-title">Интернет-шлюз (Internet Gateway)</span>
+        <code class="glossary-object">ec2 create-internet-gateway</code>
+        <a class="anchor-link" href="#term-igw">#</a>
+      </h2>
+      <p class="glossary-lead">Свойство сети, выполняющее трансляцию один к одному между приватным и публичным адресом машины.</p>
+      <p>У шлюза нет ни собственной пропускной полосы, ни платы за час: он не устройство и не может перегрузиться. Присоединения шлюза к сети недостаточно, нужен ещё маршрут в таблице подсети. Машина без публичного адреса остаётся недоступной снаружи, даже когда маршрут на шлюз есть.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="04.html">Выход в интернет</a>, <a href="13.html#internet-egress">Вопросы · Noob · выход в интернет</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-endpoint-interface">
+      <h2>
+        <span class="glossary-title">Интерфейсная точка доступа (Interface Endpoint)</span>
+        <code class="glossary-object">ec2 create-vpc-endpoint · Interface</code>
+        <a class="anchor-link" href="#term-endpoint-interface">#</a>
+      </h2>
+      <p class="glossary-lead">Сетевой интерфейс с приватным адресом внутри вашей подсети, за которым стоит служба облака.</p>
+      <p>К точке применяются группы безопасности, и она видна в списке интерфейсов счёта. Включённое приватное имя заставляет публичное имя службы разрешаться в приватный адрес точки, и приложение не меняет ни строки. Тарифицируется за каждый час в каждой зоне и за каждый обработанный гигабайт.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="06.html">Доступ без интернета</a>, <a href="11.html">Примеры · Pro</a>, <a href="14.html#endpoints-privatelink">Вопросы · Pro · точки доступа</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-local-route">
+      <h2>
+        <span class="glossary-title">Локальный маршрут (Local Route)</span>
+        <code class="glossary-object">destination: 10.0.0.0/16 · target: local</code>
+        <a class="anchor-link" href="#term-local-route">#</a>
+      </h2>
+      <p class="glossary-lead">Маршрут блока сети внутрь самой сети, появляющийся в каждой таблице сам и не удаляемый.</p>
+      <p>Именно из-за него две подсети одной сети видят друг друга без всякой настройки. Поверх локального маршрута можно положить более узкий маршрут с целью на сетевой интерфейс: по правилу самого длинного префикса он выиграет, и так строят инспекцию трафика внутри сети.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="03.html">Таблицы маршрутов</a>, <a href="13.html#route-tables">Вопросы · Noob · маршруты</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-cross-zone">
+      <h2>
+        <span class="glossary-title">Межзональный трафик (Cross-AZ Data Transfer)</span>
+        <code class="glossary-object">тариф за гигабайт в обе стороны</code>
+        <a class="anchor-link" href="#term-cross-zone">#</a>
+      </h2>
+      <p class="glossary-lead">Платный обмен данными между зонами доступности внутри одного региона.</p>
+      <p>Возникает незаметно: балансировщик раскидывает запросы по зонам, база стоит в одной зоне, а приложение в трёх, интерфейсная точка доступа создана в единственной зоне. Самый частый источник - общий NAT-шлюз на три зоны, через который наружу уходит весь трафик сети.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="04.html">Выход в интернет</a>, <a href="14.html#quotas-cost">Вопросы · Pro · эксплуатация</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-ipam">
+      <h2>
+        <span class="glossary-title">Менеджер адресного пространства (IPAM)</span>
+        <code class="glossary-object">ec2 create-ipam-pool</code>
+        <a class="anchor-link" href="#term-ipam">#</a>
+      </h2>
+      <p class="glossary-lead">Служба, которая держит дерево пулов адресов, выдаёт блоки по правилам и следит за пересечениями.</p>
+      <p>Пулы наследуют правила родителя, поэтому запрет выдавать блок мельче заданного размера пишется один раз на верхнем уровне. IPAM заменяет таблицу в вики, которую забывают обновить, машинной проверкой в момент выделения, и это единственный способ удержать план адресов организации на десятках сетей.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="12.html">Примеры · IGL</a>, <a href="15.html#address-plan">Вопросы · IGL · план адресов</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-data-perimeter">
+      <h2>
+        <span class="glossary-title">Периметр данных (Data Perimeter)</span>
+        <code class="glossary-object">aws:SourceVpce · aws:SourceVpc</code>
+        <a class="anchor-link" href="#term-data-perimeter">#</a>
+      </h2>
+      <p class="glossary-lead">Набор правил, после которых доверенные личности обращаются к доверенным ресурсам только по доверенным путям.</p>
+      <p>Сеть отвечает за третью часть - за путь. Условие на идентификатор точки доступа или на сеть источника требует, чтобы обращение пришло изнутри, даже когда личность и право на ресурс в порядке. Надёжнее правила работает отсутствие маршрута наружу: оно не зависит от полноты перечня.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="12.html">Примеры · IGL</a>, <a href="15.html#data-perimeter-proof">Вопросы · IGL · периметр данных</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-peering">
+      <h2>
+        <span class="glossary-title">Пиринг VPC (VPC Peering)</span>
+        <code class="glossary-object">ec2 create-vpc-peering-connection</code>
+        <a class="anchor-link" href="#term-peering">#</a>
+      </h2>
+      <p class="glossary-lead">Прямое соединение ровно двух сетей, не передающее трафик дальше.</p>
+      <p>Нетранзитивность означает, что при соединениях A-B и B-C сети A и C друг друга не видят. Пересекающиеся блоки соединить нельзя, маршруты нужны с обеих сторон, а выход в интернет через шлюз соседа не работает. Для n сетей каждая с каждой нужно n·(n-1)/2 соединений.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="07.html">Соединение сетей</a>, <a href="14.html#peering-connectivity">Вопросы · Pro · соединение сетей</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-subnet">
+      <h2>
+        <span class="glossary-title">Подсеть (Subnet)</span>
+        <code class="glossary-object">ec2 create-subnet</code>
+        <a class="anchor-link" href="#term-subnet">#</a>
+      </h2>
+      <p class="glossary-lead">Часть блока сети, привязанная ровно к одной зоне доступности.</p>
+      <p>Пять адресов в каждой подсети забирает служба независимо от её размера: адрес сети, маршрутизатор, резолвер, резерв и широковещательный. Подсеть связывается ровно с одной таблицей маршрутов, и именно таблица, а не свойства подсети, делает её публичной или приватной.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="02.html">Подсети и зоны</a>, <a href="10.html">Примеры · Noob</a>, <a href="13.html#subnets-zones">Вопросы · Noob · подсети и зоны</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-endpoint-policy">
+      <h2>
+        <span class="glossary-title">Политика точки доступа (Endpoint Policy)</span>
+        <code class="glossary-object">ec2 modify-vpc-endpoint --policy-document</code>
+        <a class="anchor-link" href="#term-endpoint-policy">#</a>
+      </h2>
+      <p class="glossary-lead">Документ, ограничивающий, что именно можно делать через эту точку доступа.</p>
+      <p>По умолчанию разрешает всё, и это делает её первым кандидатом на ужесточение: без политики машина с правом читать хранилище читает любую публичную корзину мира прямо из приватной подсети. Политику точки не заменяет политика ресурса: первая ограничивает путь, вторая доступ, и нужны обе.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="06.html">Доступ без интернета</a>, <a href="15.html#data-perimeter-proof">Вопросы · IGL · периметр данных</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-longest-prefix">
+      <h2>
+        <span class="glossary-title">Правило самого длинного префикса (Longest Prefix Match)</span>
+        <code class="glossary-object">/24 сильнее /16 сильнее /0</code>
+        <a class="anchor-link" href="#term-longest-prefix">#</a>
+      </h2>
+      <p class="glossary-lead">Из всех подходящих маршрутов выбирается тот, у которого длиннее маска.</p>
+      <p>Правило объясняет, почему маршрут <code>0.0.0.0/0</code> срабатывает последним: под него подходит любой адрес, но он короче любого конкурента. Оно же позволяет перехватывать трафик внутри сети маршрутом с маской длиннее блока сети, не трогая неудаляемый локальный маршрут.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="03.html">Таблицы маршрутов</a>, <a href="10.html">Примеры · Noob</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-private-zone">
+      <h2>
+        <span class="glossary-title">Приватная зона DNS (Private Hosted Zone)</span>
+        <code class="glossary-object">route53 associate-vpc-with-hosted-zone</code>
+        <a class="anchor-link" href="#term-private-zone">#</a>
+      </h2>
+      <p class="glossary-lead">Зона имён, видимая только из привязанных к ней сетей.</p>
+      <p>Привязать можно несколько сетей, в том числе в разных регионах, и тогда одно имя одинаково разрешается во всех них. Привязка к сети чужого счёта делается в два шага и только командой: владелец зоны создаёт разрешение, владелец сети выполняет привязку.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="08.html">Имена и DNS</a>, <a href="11.html">Примеры · Pro</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-privatelink">
+      <h2>
+        <span class="glossary-title">Приватная связь со службой (PrivateLink)</span>
+        <code class="glossary-object">ec2 create-vpc-endpoint-service-configuration</code>
+        <a class="anchor-link" href="#term-privatelink">#</a>
+      </h2>
+      <p class="glossary-lead">Механизм, при котором чужая служба появляется в вашей сети приватным адресом интерфейса.</p>
+      <p>Со стороны поставщика это сетевой балансировщик и объявленная поверх него служба точки доступа. Маршруты между сетями не строятся, поэтому блоки адресов поставщика и потребителя могут совпадать полностью. Для поставщика это ещё и граница ответственности: он отдаёт службу, а не доступ в свою сеть.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="06.html">Доступ без интернета</a>, <a href="14.html#endpoints-privatelink">Вопросы · Pro · точки доступа</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-public-subnet">
+      <h2>
+        <span class="glossary-title">Публичная подсеть (Public Subnet)</span>
+        <code class="glossary-object">route 0.0.0.0/0 -> igw-…</code>
+        <a class="anchor-link" href="#term-public-subnet">#</a>
+      </h2>
+      <p class="glossary-lead">Подсеть, в таблице маршрутов которой есть маршрут по умолчанию на интернет-шлюз.</p>
+      <p>Больше ничем публичная подсеть от приватной не отличается: ни имя, ни блок, ни флаги публичности не дают. Машина в публичной подсети без публичного адреса снаружи недоступна, потому что транслировать нечего. Сделать подсеть публичной можно, не трогая саму подсеть, - правкой связанной таблицы.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="02.html">Подсети и зоны</a>, <a href="04.html">Выход в интернет</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-shared-subnet">
+      <h2>
+        <span class="glossary-title">Разделяемая подсеть (Shared Subnet)</span>
+        <code class="glossary-object">ram create-resource-share · subnet-…</code>
+        <a class="anchor-link" href="#term-shared-subnet">#</a>
+      </h2>
+      <p class="glossary-lead">Подсеть, отданная владельцем сети другому счёту организации для запуска в ней своих ресурсов.</p>
+      <p>Участник создаёт в ней интерфейсы, машины, балансировщики и точки доступа, но не может менять или удалять саму подсеть и сеть, трогать таблицы маршрутов и видеть ресурсы других участников. Владелец видит всё и платит за общие части. Цена модели - единая область отказа и размытая ответственность.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="12.html">Примеры · IGL</a>, <a href="15.html#shared-ownership">Вопросы · IGL · общие подсети</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-resolver">
+      <h2>
+        <span class="glossary-title">Резолвер VPC (Route 53 Resolver)</span>
+        <code class="glossary-object">10.0.0.2 · 169.254.169.253</code>
+        <a class="anchor-link" href="#term-resolver">#</a>
+      </h2>
+      <p class="glossary-lead">Служба разрешения имён, доступная на втором адресе блока сети изнутри этой сети.</p>
+      <p>Резолвер отвечает только изнутри сети: ни через пиринг, ни снаружи он не виден. Он обслуживает приватные зоны, имена машин и приватные имена точек доступа. Выключенный атрибут поддержки DNS отключает его целиком, и тогда приложение уходит за публичным адресом службы в интернет.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="08.html">Имена и DNS</a>, <a href="14.html#dns-resolution">Вопросы · Pro · DNS</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-nacl">
+      <h2>
+        <span class="glossary-title">Сетевой ACL (Network ACL)</span>
+        <code class="glossary-object">правила по номерам · allow и deny</code>
+        <a class="anchor-link" href="#term-nacl">#</a>
+      </h2>
+      <p class="glossary-lead">Фильтр без состояния на границе подсети, умеющий и разрешать, и запрещать.</p>
+      <p>Правила просматриваются по возрастанию номера, первое совпавшее решает судьбу пакета. Состояния список не хранит, поэтому обратный поток приходится разрешать отдельным правилом на эфемерные порты. Это единственное место, где пишут именно запрет: группа безопасности запрещать не умеет.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="05.html">Фильтры трафика</a>, <a href="13.html#traffic-filters">Вопросы · Noob · фильтры</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-eni">
+      <h2>
+        <span class="glossary-title">Сетевой интерфейс (ENI)</span>
+        <code class="glossary-object">ec2 create-network-interface · eni-…</code>
+        <a class="anchor-link" href="#term-eni">#</a>
+      </h2>
+      <p class="glossary-lead">Единица, к которой крепятся приватный адрес, публичный адрес, группы безопасности и запись в журнале.</p>
+      <p>С точки зрения сети машина, балансировщик, интерфейсная точка доступа и точка резолвера - это интерфейсы. Поэтому разбор чужой сети удобно вести по их списку: он показывает, кто на самом деле стоит в подсети, независимо от того, какая служба это создала.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="02.html">Подсети и зоны</a>, <a href="navigator.html#lens-components">Навигатор · Компоненты</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-ram">
+      <h2>
+        <span class="glossary-title">Служба разделения ресурсов (AWS RAM)</span>
+        <code class="glossary-object">ram create-resource-share · name</code>
+        <a class="anchor-link" href="#term-ram">#</a>
+      </h2>
+      <p class="glossary-lead">Служба, передающая ресурсы одного счёта другим счетам организации.</p>
+      <p>Через неё раздают подсети, правила резолвера и списки префиксов. Имена полей она пишет со строчной буквы, в отличие от EC2: в форме запроса <code>name</code>, а не <code>Name</code>, и это ловится сверкой с моделью службы, а не чтением. Подсети делятся только внутри организации.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="12.html">Примеры · IGL</a>, <a href="15.html#shared-ownership">Вопросы · IGL · общие подсети</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-prefix-list">
+      <h2>
+        <span class="glossary-title">Список префиксов (Prefix List)</span>
+        <code class="glossary-object">ec2 create-managed-prefix-list · pl-…</code>
+        <a class="anchor-link" href="#term-prefix-list">#</a>
+      </h2>
+      <p class="glossary-lead">Именованный набор блоков адресов, на который ссылаются маршруты и правила фильтров.</p>
+      <p>Изменение списка меняет сразу все ссылающиеся объекты, и это единственный способ держать перечень офисов или партнёров в одном месте. Списки службы используются шлюзовыми точками доступа. Замена перечней списком - первый ход, когда маршруты в таблице упираются в квоту.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="06.html">Доступ без интернета</a>, <a href="14.html#quotas-cost">Вопросы · Pro · эксплуатация</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-route-table">
+      <h2>
+        <span class="glossary-title">Таблица маршрутов (Route Table)</span>
+        <code class="glossary-object">ec2 create-route · destination + target</code>
+        <a class="anchor-link" href="#term-route-table">#</a>
+      </h2>
+      <p class="glossary-lead">Набор правил вида «такой-то блок уходит туда-то», связанный с подсетями.</p>
+      <p>Подсеть связывается ровно с одной таблицей, сложить правила двух таблиц невозможно. Цель задаётся идентификатором объекта: шлюз, NAT, пиринг, транзитный шлюз, точка доступа или интерфейс. Если подходящего маршрута нет, пакет отбрасывается молча, и клиент видит таймаут, а не отказ.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="03.html">Таблицы маршрутов</a>, <a href="10.html">Примеры · Noob</a>, <a href="navigator.html#lens-components">Навигатор · Компоненты</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-resolver-endpoint">
+      <h2>
+        <span class="glossary-title">Точка резолвера (Resolver Endpoint)</span>
+        <code class="glossary-object">route53resolver create-resolver-endpoint</code>
+        <a class="anchor-link" href="#term-resolver-endpoint">#</a>
+      </h2>
+      <p class="glossary-lead">Интерфейсы, через которые запросы имён пересекают границу между облаком и центром данных.</p>
+      <p>Входящая точка нужна, чтобы машины вне облака спрашивали имена вашей сети. Исходящая вместе с правилом пересылки нужна для обратного направления. Правило привязывается к сетям и, разделённое на организацию, обслуживает десятки сетей сразу вместо настройки в каждой.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="08.html">Имена и DNS</a>, <a href="12.html">Примеры · IGL</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-tgw">
+      <h2>
+        <span class="glossary-title">Транзитный шлюз (Transit Gateway)</span>
+        <code class="glossary-object">ec2 create-transit-gateway-route-table</code>
+        <a class="anchor-link" href="#term-tgw">#</a>
+      </h2>
+      <p class="glossary-lead">Центральный узел, соединяющий сети, каналы и другие шлюзы через присоединения.</p>
+      <p>Связывание таблицы говорит, по какой таблице ищет путь трафик присоединения; распространение говорит, в какие таблицы попадут его маршруты. Сегментация сред делается разными таблицами, а не фильтрами. В отличие от пиринга, шлюз не отклоняет пересекающиеся блоки, и это делает его опаснее при слабом плане адресов.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="07.html">Соединение сетей</a>, <a href="12.html">Примеры · IGL</a>, <a href="15.html#transit-segmentation">Вопросы · IGL · транзитный шлюз</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-nat">
+      <h2>
+        <span class="glossary-title">Шлюз трансляции адресов (NAT Gateway)</span>
+        <code class="glossary-object">ec2 create-nat-gateway</code>
+        <a class="anchor-link" href="#term-nat">#</a>
+      </h2>
+      <p class="glossary-lead">Устройство, дающее приватным подсетям выход наружу без возможности входа.</p>
+      <p>Трансляция идёт многие в один и только в одну сторону: шлюз помнит начатые изнутри соединения и пропускает ответы на них. Сам стоит в публичной подсети, а маршрут на него прописывается в таблице приватной. Тарифицируется и за час работы, и за каждый обработанный гигабайт.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="04.html">Выход в интернет</a>, <a href="11.html">Примеры · Pro</a>, <a href="13.html#internet-egress">Вопросы · Noob · выход в интернет</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-endpoint-gateway">
+      <h2>
+        <span class="glossary-title">Шлюзовая точка доступа (Gateway Endpoint)</span>
+        <code class="glossary-object">ec2 create-vpc-endpoint · Gateway</code>
+        <a class="anchor-link" href="#term-endpoint-gateway">#</a>
+      </h2>
+      <p class="glossary-lead">Запись в таблице маршрутов, дающая приватной подсети доступ к S3 или DynamoDB без интернета.</p>
+      <p>Доступны только эти две службы. Точка бесплатна полностью: ни часов, ни гигабайтов, в отличие от NAT, который берёт и то и другое. Работает только для подсетей той сети, в таблицы которой добавлен её маршрут: через пиринг, VPN или выделенный канал она недоступна.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="06.html">Доступ без интернета</a>, <a href="10.html">Примеры · Noob</a>, <a href="14.html#endpoints-privatelink">Вопросы · Pro · точки доступа</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-eip">
+      <h2>
+        <span class="glossary-title">Эластичный адрес (Elastic IP)</span>
+        <code class="glossary-object">ec2 allocate-address</code>
+        <a class="anchor-link" href="#term-eip">#</a>
+      </h2>
+      <p class="glossary-lead">Публичный адрес, закреплённый за счётом, а не за машиной.</p>
+      <p>Обычный публичный адрес выдаётся машине на время жизни и меняется после остановки и запуска. Эластичный переносится между машинами и живёт, пока его не отпустят, поэтому его берут для NAT-шлюзов и для всего, на что ссылаются снаружи. Неиспользуемый эластичный адрес тарифицируется.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="04.html">Выход в интернет</a>, <a href="13.html#internet-egress">Вопросы · Noob · выход в интернет</a>
+      </div>
+    </div>
+
+    <div class="glossary-term" id="term-ephemeral">
+      <h2>
+        <span class="glossary-title">Эфемерные порты (Ephemeral Ports)</span>
+        <code class="glossary-object">1024-65535</code>
+        <a class="anchor-link" href="#term-ephemeral">#</a>
+      </h2>
+      <p class="glossary-lead">Высокие порты, с которых клиент начинает соединение и на которые приходит ответ.</p>
+      <p>Группа безопасности о них помнить не заставляет: она хранит состояние и пропускает ответ сама. Сетевой ACL состояния не хранит, поэтому обратный поток приходится разрешать отдельным правилом на весь диапазон. Забытое правило на эфемерные порты - классическая причина односторонней связности.</p>
+      <div class="glossary-meta">
+        <svg class="icon" data-icon="target" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><circle cx="10" cy="10" r="3.6"/><circle cx="10" cy="10" r="0.7" fill="currentColor"/></svg> <strong>Где встретилось:</strong> <a href="05.html">Фильтры трафика</a>, <a href="13.html#traffic-filters">Вопросы · Noob · фильтры</a>
+      </div>
+    </div>
   
 
     <footer>
