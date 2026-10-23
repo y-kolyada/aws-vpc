@@ -94,7 +94,7 @@
 
   <main id="main">
     <h1>Вопросы · Pro</h1>
-    <p class="page-size" data-words="2256">Слов: 2256</p>
+    <p class="page-size" data-words="2278">Слов: 2278</p>
     <p class="lead">Пятьдесят вопросов на эксплуатацию: точки доступа, соединение сетей, DNS, разбор отказов и счёт за трафик.</p>
 
     <div class="box key" id="key-idea">
@@ -207,7 +207,7 @@
     <p>Версия, счёт, интерфейс, адреса и порты источника и назначения, протокол, число пакетов и байтов, начало и конец окна, действие и состояние записи. <a href="glossary.html#term-flow-logs">Журнал</a> описывает поток, а не пакет.</p>
 
     <p><strong>33. Чего в журнале потоков нет?</strong></p>
-    <p>Содержимого пакетов, обращений к резолверу VPC, запросов к службе метаданных на <code>169.254.169.254</code> и обмена DHCP. Поэтому отсутствие записи не доказывает отсутствие трафика. При разборе это важнее всего остального: тишина в журнале читается как ответ, хотя ответом не является.</p>
+    <p>Содержимого пакетов, обращений к резолверу VPC, запросов к службе метаданных на <code>169.254.169.254</code> и обмена <span class="term"><button type="button" class="term-btn" aria-expanded="false" style="background:none;border:none;padding:1px 4px;margin:-1px -4px;font:inherit;color:inherit;cursor:pointer;border-bottom:2px dashed var(--term-accent,#db8b0e);border-radius:4px;">DHCP</button><span class="term-card" role="tooltip" hidden><span class="term-header"><strong class="term-title">Набор параметров DHCP (DHCP options set)</strong><button type="button" class="term-close" aria-label="Закрыть">&times;</button></span><span class="term-desc">Набор настроек, который сеть выдаёт машинам при запуске: адреса резолверов и доменное имя.</span><span class="term-links"><a href="glossary.html#term-dhcp">В словарь понятий <svg class="icon" data-icon="book" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.6 3.8h4.8a2.6 2.6 0 0 1 2.6 2.6v10a2.2 2.2 0 0 0-2.2-1.8H2.6z"/><path d="M17.4 3.8h-4.8a2.6 2.6 0 0 0-2.6 2.6v10a2.2 2.2 0 0 1 2.2-1.8h5.2z"/></svg></a></span></span></span>. Поэтому отсутствие записи не доказывает отсутствие трафика. При разборе это важнее всего остального: тишина в журнале читается как ответ, хотя ответом не является.</p>
 
     <p><strong>34. Что означает <code>REJECT</code> в журнале и чего он не говорит?</strong></p>
     <p>Что поток был отброшен фильтром. Но журнал не называет, каким именно: группа безопасности и сетевой ACL выглядят в нём одинаково. Различают их по направлению и по тому, видна ли запись на интерфейсе вообще. Запись об отказе на входе при отсутствии исходящего ответа почти всегда указывает на список доступа подсети.</p>

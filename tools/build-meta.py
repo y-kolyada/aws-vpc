@@ -68,6 +68,11 @@ TERM = re.compile(r'<div class="glossary-term" id="([^"]+)">(.*?)</div>\s*</div>
 TERM_NAME = re.compile(r'<span class="glossary-title">(.*?)</span>', re.S)
 TERM_LEAD = re.compile(r'<p class="glossary-lead">(.*?)</p>', re.S)
 H1 = re.compile(r'<h1[^>]*>(.*?)</h1>', re.S)
+# Заголовок вкладки собирается из <h1> по тому же канону, что ставит new-site.py:
+# «<h1> · имя сайта · ai|». Без этого переименование раздела меняло og:title и
+# схему, но оставляло вкладку, закладку и выдачу поиска со старым названием, и
+# ни одна проверка не возражала (находка 6 сайта devops-kubernetes).
+TITLE_TAG = re.compile(r'<title>.*?</title>', re.S)
 SIZE_BLOCK = re.compile(r'\n?[ \t]*<p class="page-size".*?</p>', re.S)
 PAGER_BLOCK = re.compile(r'\n?[ \t]*<nav class="pager".*?</nav>', re.S)
 FOOTER_BLOCK = re.compile(r'\s*<footer\b[^>]*>.*?</footer>', re.S)
@@ -257,7 +262,11 @@ def rebuild(lang, name, titles):
 
     # Голова страницы собирается последней: описание берётся из лида, а схема
     # FAQPage - из вопросов, то есть из уже готового тела.
-    head = head_block(lang, name, title(page), text)
+    heading = title(page)
+    text = TITLE_TAG.sub(
+        lambda m: '<title>%s · %s · ai|</title>' % (html.escape(heading, quote=False), SITE_NAME),
+        text, count=1)
+    head = head_block(lang, name, heading, text)
     text = text.replace('</title>', '</title>\n' + head, 1)
     return page, text
 

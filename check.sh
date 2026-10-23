@@ -16,6 +16,7 @@
 #     python3 tools/build-search.py       пересобрать индекс поиска
 #     python3 tools/build-meta.py         голова страницы, объём в словах, соседние темы, карта сайта
 #     node tools/check-pages.mjs          телефон 390px и липкая панель, все страницы
+#     python3 tools/check-navigator.py    девять линз и выход из каждой
 #     node tools/shot.mjs ru/01.html       снимок одной страницы, чтобы посмотреть глазами
 #
 # Браузерная проверка требует playwright (npm i playwright). Если его нет,
@@ -57,6 +58,7 @@ run "пунктуация"          python3 tools/check-text.py
 run "индекс поиска"        python3 tools/build-search.py --check
 run "данные страниц"       python3 tools/build-meta.py --check
 run "телефон и панель"     node tools/check-pages.mjs
+run "линзы навигатора"     python3 tools/check-navigator.py
 
 echo
 echo "  Итог проверки сайта"
