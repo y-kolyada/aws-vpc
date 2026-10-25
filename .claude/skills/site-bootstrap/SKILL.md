@@ -18,6 +18,16 @@ Identify the five parameters of the new site with the Conductor:
 
 ## 2. Execute Bootstrap from the Seed
 
+### Option A · Automated One-Shot Script (Recommended)
+From the repository root:
+```bash
+./scripts/src/bash/cources/init-course.sh <repo-slug> [site-name] [topic-chip] [storage-key] [search-word]
+# e.g.:
+./scripts/src/bash/cources/init-course.sh aws-vpc devops-aws-vpc "AWS VPC" aws-vpc Раздел
+```
+This script executes steps 2, 3, and 4 automatically, verifying a 10/10 green check immediately.
+
+### Option B · Manual Execution
 From the shared seed directory `seed/swa/`:
 ```bash
 cd /home/ik/lab/ai-factory-builder/seed/swa
